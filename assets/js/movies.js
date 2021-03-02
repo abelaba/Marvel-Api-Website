@@ -44,3 +44,18 @@ async function loadDataFunction(offset) {
      return data;
      
   }
+  async function gettotal() {
+
+    //open the request
+
+     let response = await fetch(`https://gateway.marvel.com:443/v1/public/series?hash=0b5bbd635d0487398a2199c5417c0969&ts=1&apikey=4009707bfdf8f467b3dc12d8d2e25bb7`);
+      
+     let data = await response.json(); 
+
+     let total =await data.data.total
+
+     
+       
+     return total;
+     
+  }
