@@ -104,3 +104,21 @@ async function loadDataFunction(offset) {
 }
 
 works()
+
+var search = document.querySelector(".searcher")
+
+
+
+search.addEventListener('keyup', filterTasks);
+
+
+function filterTasks() {
+    let key = search.value; //key now has the filtered value
+    for (let i = 0; i < allLi.length; i++) {
+      if ((new RegExp(key.toLowerCase())).test(allLi[i].textContent.toLowerCase())) {
+        allLi[i].parentElement.parentElement.style.display = "";
+      } else {
+        allLi[i].parentElement.parentElement.style.display = "none";
+      }
+    }
+  }
