@@ -125,3 +125,5 @@ async function works(){
 works()
 
 var search = document.querySelector(".searcher")
+
+search.addEventListener('keyup', filterTasks);
