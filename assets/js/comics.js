@@ -95,3 +95,29 @@ async function works(){
         link.setAttribute("href","javascript:void(0)")
         spanLinks.appendChild(link)    
     }
+
+    document.querySelectorAll(".links a").forEach((item)=>{
+        item.addEventListener('click',()=>{
+            console.log(parseInt(item.className)*100);
+            
+            async function inner(){
+                var z =''
+                var myarray = await loadDataFunction(parseInt(item.className)*100).then((data)=>data.data.results)
+                for (let i = 0; i < myarray.length; i++) {
+                
+                    z += `${cardCreate2(myarray[i].title,myarray[i].thumbnail.path,array[i].description)}`
+                    
+                }
+                 spanDiv.innerHTML = z
+                 console.log(myarray);
+                //location.reload()
+            }
+            inner()  
+    
+        })
+    
+    })
+    allLi = document.querySelectorAll("h1");
+  
+
+}
