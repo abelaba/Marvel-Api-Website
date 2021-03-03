@@ -69,3 +69,29 @@ async function loadDataFunction(offset) {
 var spanDiv = document.querySelector(".body")
 var spanLinks = document.querySelector(".links")
 var allLi;
+
+async function works(){
+
+    var total = await gettotal().then((data)=>{return data})
+    var array = await loadDataFunction(0).then((data)=>data.data.results)
+    console.log(array);
+    
+    
+
+    for (let i = 0; i < array.length; i++) {
+        spanDiv.innerHTML += `${cardCreate2(array[i].title,array[i].thumbnail.path,array[i].description)}`
+        
+    }
+
+    //link creation
+    for (let i = 0; i < 1500; i+=100) {
+
+        
+
+        var list = document.createElement("li")
+        var link = document.createElement("a")
+        link.className = `${i/100}`
+        link.innerText = `${i/100}`
+        link.setAttribute("href","javascript:void(0)")
+        spanLinks.appendChild(link)    
+    }
