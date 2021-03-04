@@ -59,6 +59,7 @@ async function loadDataFunction(offset) {
      return total;
      
   }
+  
 var spanDiv = document.querySelector(".body")
 var spanLinks = document.querySelector(".links")
 var allLi;
@@ -93,3 +94,49 @@ async function works(){
         link.setAttribute("href","javascript:void(0)")
         spanLinks.appendChild(link)    
     }
+
+   
+    
+    
+    document.querySelectorAll(".links a").forEach((item)=>{
+        item.addEventListener('click',()=>{
+            console.log(parseInt(item.className)*100);
+            
+            async function inner(){
+                var z =''
+                var myarray = await loadDataFunction(parseInt(item.className)*100).then((data)=>data.data.results)
+                for (let i = 0; i < myarray.length; i++) {
+                
+                    z += `${cardCreate2(myarray[i].title,myarray[i].thumbnail.path,array[i].description)}`
+                    
+                }
+                 spanDiv.innerHTML = z
+                 console.log(myarray);
+                //location.reload()
+            }
+            inner()  
+    
+        })
+    
+    })
+    allLi = document.querySelectorAll("h1");
+  
+
+}
+
+works()
+var search = document.querySelector(".searcher")
+
+search.addEventListener('keyup', filterTasks);
+
+
+function filterTasks() {
+    let key = search.value; //key now has the filtered value
+    for (let i = 0; i < allLi.length; i++) {
+      if ((new RegExp(key.toLowerCase())).test(allLi[i].textContent.toLowerCase())) {
+        allLi[i].parentElement.parentElement.style.display = "";
+      } else {
+        allLi[i].parentElement.parentElement.style.display = "none";
+      }
+    }
+  }
