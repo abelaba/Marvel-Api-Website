@@ -52,6 +52,13 @@ async function loadDataFunction(offset) {
      
   }
 
+    
+
+
+var spanDiv = document.querySelector(".body")
+var spanLinks = document.querySelector(".links")
+var allLi;
+
 
   async function works(){
 
