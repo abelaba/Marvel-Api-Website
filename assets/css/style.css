@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'oswald';
+    src: url('/assets/fonts/Mightyspidey-pmaa.ttf');
+}
+
+.card{
+    transition:1s;
+
+}
+
+.card:hover{
+    transform: translate(10px,10px);
+    transition:1s;
+}
+
+
+body{
+    background: url("/assets/images/marvel.jpg") no-repeat fixed;
+    background-position: center 70px;
+    background-size: cover;
+  
+    
+}
+
+
+a{
+    padding: 20px;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+
+    
+}
+
+a:hover{
+    color:aqua
+}
+
+a:active{
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+}
+
+
+
+
+
+.body{
+    display: flex;
+    flex-wrap:wrap
+}
+
+.links{
+    display: flex;
+    flex-wrap:wrap
+}
+
+
